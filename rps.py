@@ -2,44 +2,61 @@
 
 import random, sys, time, os
 
-#TODO initialize game elements to selection.
-game_elements = ['Rock', 'Paper' , 'Scissors']
-player_score = 0
-cpu_score = 0
-player = input('Choose (R)ock, (P)aper or (S)scissors: ').lower()
-cpu = random.choice(game_elements)
+game_elements = ['Rock','Paper','Scissors']
+print('Wellcom to Rock, Paper, Scissors')
+player = input('(R)ock,(P)aper or (S)cissor? : ').lower()
+ki = random.choice(game_elements)
 
-def game_logic(pl, com, plPoints, cpuPoints):
-    if pl == 'Rock' and com == "Scissors":
-        plPoints += 1
-        print(cpu)
-        print('Player wins! Player- Score: ', plPoints )
-
-    elif pl == 'Rock' and com == 'Paper':
-        cpuPoints += 1
-        print(cpu)
-        print('Computer wins! Comuter- Score: ', cpuPoints )
-
-    elif pl == 'Rock' and com == 'Rock':
-        print(cpu)
-        print('Draw')
-
-    elif pl == 'Paper' and com == 'Scissors':
-        cpuPoints += 1
-        print(cpu)
-        print('Computer wins! Comuter- Score: ', cpuPoints )
-
-    elif pl == 'Paper' and com == 'Paper':
-        print(cpu)
-        print('Draw')
-
-    elif pl == 'Paper' and com == 'Rock':
-        plPoints += 1
-        print(cpu)
-        print('Player wins! Player- Score: ', plPoints )
-
+def player_logic(playerIn):
+    if playerIn == 'r':
+        print(game_elements[0])
+    elif playerIn == 'p':
+        print(game_elements[1])
+    elif playerIn == 's':
+        print(game_elements[2])
     else:
-        print('Invalid Input!')
-   
+        print('Invalid Input! Please type r,p or s!')
 
-game_logic(player, cpu, player_score, cpu_score)
+def com_logic(com, game):
+    if com == 'Rock':
+        print(com)
+    elif com == 'Paper':
+        print(com)
+    elif com == 'Scissors':
+        print(com)
+
+def game(com, pl):
+    if pl == 'r' and com == 'Rock':
+        print('Draw')
+    elif pl == 'r' and com == 'Paper':
+        print('Com Wins')
+    elif pl == 'r' and com == 'Scissors':
+        print('Player Wins')
+    if pl == 'p' and com == 'Rock':
+        print('Player wins')
+    elif pl == 'p' and com == 'Paper':
+        print('Draw')
+    elif pl == 'p' and com == 'Scissors':
+        print('Com Wins')
+    if pl == 's' and com == 'Rock':
+        print('Com wins')
+    elif pl == 's' and com == 'Paper':
+        print('Player wins')
+    elif pl == 's' and com == 'Scissors':
+        print('Draw')
+
+def show_menu():
+    print('Wellcom to Rock, Paper, Scissors')
+    print('')
+    print('Titlemenu')
+    print('[1] - New Game')
+    print('[2] - Exit')
+    menu = input('Please select [1] or [2] : ')
+
+
+if __name__=="__main__":
+    #show_menu()
+    player_logic(player)
+    time.sleep(3)
+    com_logic(ki,game_elements)
+    game(ki, player)
